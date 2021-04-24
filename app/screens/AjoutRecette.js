@@ -37,6 +37,7 @@ export default Home = () => {
     const ajoutRecette = async () => {
         //Vérification que tout les textInput obligatoires soit bien remplis:
         if (nomRecette && categorie && ingredients && description ) {
+            let idRandom = (((1+Math.random())*0x10000)|0).toString(16).substring(1);
             let listeRecetteTemporaire = listeRecette;
             listeRecetteTemporaire.push({
                 name:nomRecette,
@@ -44,7 +45,7 @@ export default Home = () => {
                 cat:categorie,
                 ing:ingredients,
                 desc:description,
-                id:listeRecetteTemporaire.length
+                id:idRandom
             });
             setListeRecette (listeRecetteTemporaire);
             
