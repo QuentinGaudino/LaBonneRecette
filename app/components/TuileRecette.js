@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Text, Pressable, Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/EvilIcons';
 
 
 
@@ -32,6 +33,7 @@ export const TuileRecette = props => {
                     <Text style={styles.textPlat}>
                         {pressed ? props.nomRecette : props.nomRecette}
                     </Text>
+                    <Icon name="eye" style={styles.eye}/>
                 </React.Fragment>
             )}
 
@@ -92,5 +94,12 @@ const styles = StyleSheet.create({
         height: 70,
         borderTopLeftRadius: 12,
         borderBottomLeftRadius: 12,
+    },
+
+    eye:{
+        textAlignVertical: "center",
+        marginLeft: "50%",
+        fontSize: 50,
+        color: "white",
     },
 });

@@ -33,7 +33,7 @@ export default Home = () => {
             console.log("Erreur dans le getRecette");
         }
     };
-
+//fgsdfg
     //Fonction permettant d'ajouter la recette saisie à la liste des recettes, et de les sauvegarder dans une AsyncStorage
     const ajoutRecette = async () => {
         //Vérification que tout les textInput obligatoires soit bien remplis:
@@ -125,12 +125,6 @@ export default Home = () => {
                 />
 
                 <Text style={styles.textCategorie}>Catégorie</Text>
-                {/* <TextInput
-                    onChangeText={setCategorie}
-                    value={categorie}
-                    style={styles.textInput}
-                    placeholder="Ce champ est obligatoire"
-                /> */}
 
                 <Picker
                     style={styles.picker}

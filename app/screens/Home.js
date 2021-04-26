@@ -21,9 +21,11 @@ export default Home = () => {
     const getRecettes = async () =>{
         try {
             const jsonValue = await AsyncStorage.getItem("@recette_Key");
-            return jsonValue != null
-                ? setListeRecette(JSON.parse(jsonValue))
-                : null;
+            if (jsonValue) {
+                setListeRecette(JSON.parse(jsonValue))
+            } else {
+                setListeRecette([]);
+            }
         } catch (error) {
             console.log("Erreur dans le getRecette");
         }
