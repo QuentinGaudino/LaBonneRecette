@@ -3,6 +3,7 @@ import {View, StyleSheet, Text, TextInput, Pressable, Alert, Modal, ScrollView} 
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {Picker} from '@react-native-picker/picker';
 
 
 
@@ -124,12 +125,26 @@ export default Home = () => {
                 />
 
                 <Text style={styles.textCategorie}>Catégorie</Text>
-                <TextInput
+                {/* <TextInput
                     onChangeText={setCategorie}
                     value={categorie}
                     style={styles.textInput}
                     placeholder="Ce champ est obligatoire"
-                />
+                /> */}
+
+                <Picker
+                    style={styles.picker}
+                    selectedValue={categorie}
+                    onValueChange={(itemValue, itemIndex) =>
+                        setCategorie(itemValue)
+                    }
+                >
+                    <Picker.Item label="Sélectionnez une catégorie" value=""/>
+                    <Picker.Item label="Apéritif" value="Apéritif"/>
+                    <Picker.Item label="Entrée" value="Entrée"/>
+                    <Picker.Item label="Plat" value="Plat"/>
+                    <Picker.Item label="Dessert" value="Dessert"/>
+                </Picker>
 
                 <Text style={styles.textCategorie}>Ingrédients</Text>
                 <TextInput
@@ -200,6 +215,11 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         color: "#013c62",
         fontWeight: "bold",
+    },
+
+    picker: {
+        paddingHorizontal: 10,
+        marginHorizontal: 10,
     },
 
     //Style de la modal
